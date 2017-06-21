@@ -162,6 +162,9 @@
 #define CFG_C64_PHI2_REC 0xCC
 #define CFG_C64_RATE	 0xCD
 #define CFG_CMD_ENABLE   0x71
+#define CFG_C64_REU_PRE  0x80
+#define CFG_C64_REU_IMG  0x81
+#define CFG_C64_REU_OFFS 0x82
 
 #define ID_MODPLAYER 0xAA
 
@@ -251,6 +254,8 @@ public:
         
     friend class FileTypeSID; // sid load does some tricks
     friend class C64_Subsys; // the wrapper with file access
+    friend class REUPreloader; // preloader needs to access config
+    friend class FileTypeREU; // REU file needs to access config 
 };
 
 extern C64 *c64;
